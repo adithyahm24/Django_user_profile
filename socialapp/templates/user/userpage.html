@@ -1,0 +1,36 @@
+{% extends 'user/base.html' %}
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm-3">
+    	
+        <div class="card-deck text-center" style="width: 16rem;">
+            <div class="text-center">
+                <img src="{{ request.user.profile.thumb.url }}" class="img-thumbnail" style="width:100%;height:100%;" >
+            </div>
+        </div>
+    
+</div>
+    <div class="col-sm-8">
+    	<div class="shadow-lg  mb-5 bg-white rounded">
+    		
+    		<div class="jumbotron">
+    			
+        	
+            		<div class="container">
+                		<form id="update_user_form" method="POST" action="" enctype="multipart/form-data">
+                			{% csrf_token %}
+                   		 <h1 class="display-5">{{ request.user.profile.name }}</h1><br>
+                    {{form.as_p}}
+                   
+
+                		<input type="submit" name="update"> &nbsp &nbsp &nbsp
+                		<a href="profile" class="btn btn-primary btn-sm">Back</a>
+                		</form>
+            		</div> 
+            	  
+            </div>
+        </div>
+	</div>
+{% endblock %}

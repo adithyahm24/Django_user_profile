@@ -1,0 +1,35 @@
+{% extends 'user/base.html' %}
+{% block content %}
+
+<div class="jumbotron">
+
+<h1 id="form-title">LOGIN</h1><br>
+		
+<form method="POST" action="login">
+	{%csrf_token%}
+
+	<p>Username : <input type="text" name="username" placeholder="Username..." class="form"><br><br></p>
+
+	<p>Password : <input type="password" name="password" placeholder="Password..." class="form" ><br><br></p>
+	<p>{%for m in messages%}
+			{{m}}{%endfor%}</p><br><br>
+	
+	<input class="btn btn-success" type="submit" value="Login">&nbsp &nbsp &nbsp &nbsp<a href="{%url 'user_home'%}" class="btn btn-primary btn-sm">Back</a>
+	
+	</form>
+
+	
+
+	<div class="mt-4">
+	<div class="d-flex justify-content links">
+	Don't have an account? <a href="{% url 'signup' %}" class="ml-2">Sign Up</a>
+	</div>
+	</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

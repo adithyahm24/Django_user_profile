@@ -1,0 +1,29 @@
+{% extends 'user/base.html' %}
+{% block content %}
+<div class="jumbotron">
+<h1>Sign up</h1><br>
+<form class="site-form" action="signup" method="post">
+	<div class="container">
+	{% csrf_token %}
+	{%for i in form%}
+		{{i.label}} : {{i}}
+		<br><br>
+
+	
+	{%endfor%}
+	{%for m in messages%}
+	  **{{m}}**<br>
+	  {%endfor%}
+	<input type="submit" value="Signup">&nbsp &nbsp &nbsp &nbsp<a href="{%url 'user_home'%}" class="btn btn-primary btn-sm">Back</a>
+	<div class="mt-4">
+				<div class="d-flex justify-content links">
+					Have an account? <a href="{% url 'login' %}" class="ml-2">login</a>
+				</div>
+		
+	</div>
+
+
+</div>
+</form>
+</div>
+{% endblock %}

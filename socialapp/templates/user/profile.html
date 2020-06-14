@@ -1,0 +1,50 @@
+
+
+
+{% extends 'user/base.html' %}
+
+{% block content %}
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+<style>
+      .frame {
+      width: 450px;
+      height: 350px;
+      border: 3px solid #ccc;
+      background: #eee; 
+      margin: auto;
+      padding: 15px 25px;
+      }
+      
+    </style>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card-deck text-center" style="width: 16rem;">
+            <div class="text-center">
+                <img class="img-thumbnail" src="{{request.user.profile.thumb.url}}" style="width:100%;height:100%;"><br>
+                <br><a href="userpage" class="btn btn-primary btn-sm">Edit Profile</a>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="jumbotron">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="display-5">{{request.user.profile.name}}</h1><br>
+                    <p class="lead">Profession : {{request.user.profile.profession}}</p>
+                    <p class="" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+{% endblock %}
